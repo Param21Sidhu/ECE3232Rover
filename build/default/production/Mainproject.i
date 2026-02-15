@@ -19839,51 +19839,7 @@ void __attribute__((picinterrupt(("")))) ISR(){
     }
 }
 
-void UARTSYNC(){
-
-    int x = 0;
-
-        while(x < 2){
-
-            if((PIR3bits.TXIF == 1) && (x == 0)){
-                TXMSG = 0xFE;
-                PIE3bits.TXIE = 1;
-                x++;
-            }
-            else if((PIR3bits.TXIF == 1) && (x == 1)){
-                TXMSG = 0x19;
-                PIE3bits.TXIE = 1;
-                x++;
-            }
-        }
-}
-
-void GETPCUINFO(){
-
-    int x = 0;
-
-        while(x < 4){
-
-            if((PIR3bits.TXIF == 1) && (x == 0)){
-                TXMSG = 0x01;
-                PIE3bits.TXIE = 1;
-                x++;
-            }
-            else if((PIR3bits.TXIF == 1) && (x == 1)){
-                TXMSG = 0x05;
-                PIE3bits.TXIE = 1;
-                x++;
-            }
-            else if((PIR3bits.TXIF == 1) && (x =< 2)){
-                TXMSG = 0x00;
-                PIE3bits.TXIE = 1;
-                x++;
-            }
-        }
-}
-
-void SEND_0501_GET_INFO(void)
-{
+void SEND_0501_GET_INFO(void){
 
     uint8_t bytes[6] = {0xFE, 0x19, 0x01, 0x05, 0x00, 0x00};
 
@@ -19891,9 +19847,6 @@ void SEND_0501_GET_INFO(void)
         while (PIR3bits.TXIF == 0) { }
         TXMSG = bytes[i];
         PIE3bits.TXIE = 1;
-        while (PIE3bits.TXIE == 1) {
-
-        }
     }
 }
 
@@ -19909,15 +19862,15 @@ void main(void) {
     TX1STAbits.TXEN = 1;
     TX1STAbits.SYNC = 0;
     RC1STAbits.SPEN = 1;
+    RC1STAbits.CREN = 1;
     RC6PPS = 0x10;
 
 
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
+    PIE3bits.RCIE = 1;
 
-
-
-    SEND_0501_GET_INFO
+    SEND_0501_GET_INFO();
 
     while(1){
 

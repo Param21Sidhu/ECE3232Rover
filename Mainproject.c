@@ -31,7 +31,6 @@ void __interrupt() ISR(){ //Interrupt handler
     }
     
     if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
-        
         RXMSG = RC1REG; //store received byte
     }
 }
@@ -43,10 +42,7 @@ void SEND_0501_GET_INFO(void){
     for (int i = 0; i < 6; i++) {
         while (PIR3bits.TXIF == 0) { }
         TXMSG = bytes[i];
-        PIE3bits.TXIE = 1;
-        while (PIE3bits.TXIE == 1) {
-        
-        } // wait ISR to send + turn it off
+        PIE3bits.TXIE = 1; //enable interrupt
     }
 }
 
@@ -62,14 +58,16 @@ void main(void) { //main function
     TX1STAbits.TXEN = 1; //Enable transmitter
     TX1STAbits.SYNC = 0; //Asynchronous mode
     RC1STAbits.SPEN = 1; //Receiver enabled
+    RC1STAbits.CREN = 1; //Enable continuous receive
     RC6PPS = 0x10; //sets Tx to port RC6 (port is output and digital by default)
    
     //interrupts setup
     INTCONbits.PEIE = 1; //Peripheral interrupts enabled 
     INTCONbits.GIE = 1; //Global interrupts enabled
-    //PIE3bits.TXIE = 1; //USART Transmit interrupt enabled 
-    //PIE3bits.RCIE = 1; //USART Receive interrupt enabled
+    PIE3bits.RCIE = 1; //USART Receive interrupt enabled
 
+    SEND_0501_GET_INFO();
+            
     while(1){ //always active loop
         //do something
     }

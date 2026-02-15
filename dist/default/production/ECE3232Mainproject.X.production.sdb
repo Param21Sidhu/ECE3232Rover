@@ -13,7 +13,9 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "24 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"55
+"38
+[v _SEND_0501_GET_INFO SEND_0501_GET_INFO `(v  1 e 1 0 ]
+"49
 [v _main main `(v  1 e 1 0 ]
 [s S124 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
@@ -93,12 +95,21 @@
 [v _TXMSG TXMSG `uc  1 e 1 0 ]
 "22
 [v _RXMSG RXMSG `uc  1 e 1 0 ]
-"55
+"49
 [v _main main `(v  1 e 1 0 ]
 {
-"78
-[v main@x x `i  1 a 2 1 ]
-"96
+"76
+} 0
+"38
+[v _SEND_0501_GET_INFO SEND_0501_GET_INFO `(v  1 e 1 0 ]
+{
+"42
+[v SEND_0501_GET_INFO@i i `i  1 a 2 7 ]
+"40
+[v SEND_0501_GET_INFO@bytes bytes `[6]uc  1 a 6 1 ]
+"38
+[v SEND_0501_GET_INFO@F11709 F11709 `[6]uc  1 s 6 F11709 ]
+"47
 } 0
 "24
 [v _ISR ISR `II(v  1 e 1 0 ]
