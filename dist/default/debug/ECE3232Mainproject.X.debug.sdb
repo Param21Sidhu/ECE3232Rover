@@ -13,11 +13,9 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "24 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"38
-[v _UARTSYNC UARTSYNC `(v  1 e 1 0 ]
-"57
-[v _GETPCUINFO GETPCUINFO `(v  1 e 1 0 ]
-"76
+"81
+[v _SEND_0501_GET_INFO SEND_0501_GET_INFO `(v  1 e 1 0 ]
+"95
 [v _main main `(v  1 e 1 0 ]
 [s S124 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
@@ -97,24 +95,21 @@
 [v _TXMSG TXMSG `uc  1 e 1 0 ]
 "22
 [v _RXMSG RXMSG `uc  1 e 1 0 ]
-"76
+"95
 [v _main main `(v  1 e 1 0 ]
 {
-"104
+"122
 } 0
-"38
-[v _UARTSYNC UARTSYNC `(v  1 e 1 0 ]
+"81
+[v _SEND_0501_GET_INFO SEND_0501_GET_INFO `(v  1 e 1 0 ]
 {
-"40
-[v UARTSYNC@x x `i  1 a 2 1 ]
-"55
-} 0
-"57
-[v _GETPCUINFO GETPCUINFO `(v  1 e 1 0 ]
-{
-"59
-[v GETPCUINFO@x x `i  1 a 2 1 ]
-"74
+"85
+[v SEND_0501_GET_INFO@i i `i  1 a 2 7 ]
+"83
+[v SEND_0501_GET_INFO@bytes bytes `[6]uc  1 a 6 1 ]
+"81
+[v SEND_0501_GET_INFO@F11713 F11713 `[6]uc  1 s 6 F11713 ]
+"93
 } 0
 "24
 [v _ISR ISR `II(v  1 e 1 0 ]

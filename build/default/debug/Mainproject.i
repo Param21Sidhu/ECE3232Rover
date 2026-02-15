@@ -19848,12 +19848,12 @@ void UARTSYNC(){
             if((PIR3bits.TXIF == 1) && (x == 0)){
                 TXMSG = 0xFE;
                 PIE3bits.TXIE = 1;
-                x = 1;
+                x++;
             }
             else if((PIR3bits.TXIF == 1) && (x == 1)){
                 TXMSG = 0x19;
                 PIE3bits.TXIE = 1;
-                x = 2;
+                x++;
             }
         }
 }
@@ -19862,19 +19862,38 @@ void GETPCUINFO(){
 
     int x = 0;
 
-        while(x < 2){
+        while(x < 4){
 
             if((PIR3bits.TXIF == 1) && (x == 0)){
                 TXMSG = 0x01;
                 PIE3bits.TXIE = 1;
-                x = 1;
+                x++;
             }
             else if((PIR3bits.TXIF == 1) && (x == 1)){
-                TXMSG = 0x04;
+                TXMSG = 0x05;
                 PIE3bits.TXIE = 1;
-                x = 2;
+                x++;
+            }
+            else if((PIR3bits.TXIF == 1) && (x == 2)){
+                TXMSG = 0x00;
+                PIE3bits.TXIE = 1;
+                x++;
             }
         }
+}
+
+void SEND_0501_GET_INFO(void){
+
+    uint8_t bytes[6] = {0xFE, 0x19, 0x01, 0x05, 0x00, 0x00};
+
+    for (int i = 0; i < 6; i++) {
+        while (PIR3bits.TXIF == 0) { }
+        TXMSG = bytes[i];
+        PIE3bits.TXIE = 1;
+        while (PIE3bits.TXIE == 1) {
+
+        }
+    }
 }
 
 void main(void) {
@@ -19897,8 +19916,7 @@ void main(void) {
 
 
 
-    UARTSYNC();
-    GETPCUINFO();
+    SEND_0501_GET_INFO();
 
     while(1){
 

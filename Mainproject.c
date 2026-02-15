@@ -27,50 +27,27 @@ void __interrupt() ISR(){ //Interrupt handler
         
         TX1REG = TXMSG; //byte to be transmitted
         TXMSG = 0x00; //reset TXMSG so same message is not continuously sent
-        PIE3bits.TXIE = 0;
+        PIE3bits.TXIE = 0; //turn off enable bit so the function is exited
     }
     
     if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
+        
         RXMSG = RC1REG; //store received byte
     }
 }
 
-void UARTSYNC(){ //sends Tx sync bits
-    
-    int x = 0; //sync sent counter
-    
-        while(x < 2){ //loop until both sync sent
-            
-            if((PIR3bits.TXIF == 1) && (x == 0)){ //if ready for transmission and no other sync send, send first sync
-                TXMSG = 0xFE; //first sync code
-                PIE3bits.TXIE = 1;
-                x = 1; //ready for next sync
-            }
-            else if((PIR3bits.TXIF == 1) && (x == 1)){ //if ready for transmission and first sync sent, send second sync
-                TXMSG = 0x19; //second sync code
-                PIE3bits.TXIE = 1;
-                x = 2;
-            }
-        }
-}
+void SEND_0501_GET_INFO(void){
+    // Send: FE 19 01 05 00 00
+    uint8_t bytes[6] = {0xFE, 0x19, 0x01, 0x05, 0x00, 0x00};
 
-void GETPCUINFO(){ //sends Tx sync bits
-    
-    int x = 0; //sync sent counter
-    
-        while(x < 2){ //loop until both sync sent
-            
-            if((PIR3bits.TXIF == 1) && (x == 0)){ //if ready for transmission and no other sync send, send first sync
-                TXMSG = 0x01; //first sync code
-                PIE3bits.TXIE = 1;
-                x = 1; //ready for next sync
-            }
-            else if((PIR3bits.TXIF == 1) && (x == 1)){ //if ready for transmission and first sync sent, send second sync
-                TXMSG = 0x04; //second sync code
-                PIE3bits.TXIE = 1;
-                x = 2;
-            }
-        }
+    for (int i = 0; i < 6; i++) {
+        while (PIR3bits.TXIF == 0) { }
+        TXMSG = bytes[i];
+        PIE3bits.TXIE = 1;
+        while (PIE3bits.TXIE == 1) {
+        
+        } // wait ISR to send + turn it off
+    }
 }
 
 void main(void) { //main function
@@ -92,9 +69,6 @@ void main(void) { //main function
     INTCONbits.GIE = 1; //Global interrupts enabled
     //PIE3bits.TXIE = 1; //USART Transmit interrupt enabled 
     //PIE3bits.RCIE = 1; //USART Receive interrupt enabled
-    
-    UARTSYNC();
-    GETPCUINFO();
 
     while(1){ //always active loop
         //do something
