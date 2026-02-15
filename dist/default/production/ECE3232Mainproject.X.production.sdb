@@ -1,0 +1,107 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18855 ]
+[d frameptr 6 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"24 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"55
+[v _main main `(v  1 e 1 0 ]
+[s S124 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"364 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc/pic16f18855.h
+[u S129 . 1 `S124 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES129  1 e 1 @11 ]
+"3503
+[v _RC1REG RC1REG `VEuc  1 e 1 @281 ]
+"3557
+[v _TX1REG TX1REG `VEuc  1 e 1 @282 ]
+"3618
+[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @283 ]
+"3688
+[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
+[s S102 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3768
+[u S111 . 1 `S102 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES111  1 e 1 @285 ]
+[s S79 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3948
+[u S88 . 1 `S79 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES88  1 e 1 @286 ]
+[s S58 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4136
+[u S67 . 1 `S58 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES67  1 e 1 @287 ]
+[s S22 . 1 `uc 1 SSP1IF 1 0 :1:0 
+`uc 1 BCL1IF 1 0 :1:1 
+`uc 1 SSP2IF 1 0 :1:2 
+`uc 1 BCL2IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+"21120
+[u S29 . 1 `S22 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES29  1 e 1 @1807 ]
+[s S40 . 1 `uc 1 SSP1IE 1 0 :1:0 
+`uc 1 BCL1IE 1 0 :1:1 
+`uc 1 SSP2IE 1 0 :1:2 
+`uc 1 BCL2IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+"21542
+[u S47 . 1 `S40 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES47  1 e 1 @1817 ]
+"32770
+[v _RC6PPS RC6PPS `VEuc  1 e 1 @3878 ]
+"21 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
+[v _TXMSG TXMSG `uc  1 e 1 0 ]
+"22
+[v _RXMSG RXMSG `uc  1 e 1 0 ]
+"55
+[v _main main `(v  1 e 1 0 ]
+{
+"78
+[v main@x x `i  1 a 2 1 ]
+"96
+} 0
+"24
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"36
+} 0
