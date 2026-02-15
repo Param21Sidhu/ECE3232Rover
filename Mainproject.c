@@ -70,6 +70,13 @@ void main(void) { //main function
             
     while(1){ //always active loop
         //do something
+        uint8_t Rxsync[2];
+        
+        if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
+        RXMSG = RC1REG; //store received byte
+        
+        
+    }
     }
     
     return;
