@@ -1773,19 +1773,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Mainproject.c: 52: 
 [e = . . _BAUD1CONbits 0 3 -> -> 1 `i `uc ]
 "53
-[; ;Mainproject.c: 53:     }
+[; ;Mainproject.c: 53: 
 [e = . . _TX1STAbits 0 2 -> -> 1 `i `uc ]
 "54
 [; ;Mainproject.c: 54: 
 [e = _SP1BRGH -> -> 0 `i `uc ]
 "55
-[; ;Mainproject.c: 55:     return;
+[; ;Mainproject.c: 55: 
 [e = _SP1BRGL -> -> 68 `i `uc ]
 "58
+[; ;Mainproject.c: 58:     }
 [e = . . _TX1STAbits 0 5 -> -> 1 `i `uc ]
 "59
+[; ;Mainproject.c: 59:      return;
 [e = . . _TX1STAbits 0 4 -> -> 0 `i `uc ]
 "60
+[; ;Mainproject.c: 60:     }
 [e = . . _RC1STAbits 0 7 -> -> 1 `i `uc ]
 "61
 [e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
@@ -1802,13 +1805,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "71
 [e :U 1576 ]
 {
-"73
+"78
 }
 [e :U 1575 ]
 [e $U 1576  ]
 [e :U 1577 ]
-"75
+"79
 [e $UE 1574  ]
-"76
+"80
 [e :UE 1574 ]
 }

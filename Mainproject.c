@@ -30,9 +30,6 @@ void __interrupt() ISR(){ //Interrupt handler
         PIE3bits.TXIE = 0; //turn off enable bit so the function is exited
     }
     
-    if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
-        RXMSG = RC1REG; //store received byte
-    }
 }
 
 void SEND_0501_GET_INFO(void){
@@ -60,6 +57,11 @@ void main(void) { //main function
     RC1STAbits.SPEN = 1; //Receiver enabled
     RC1STAbits.CREN = 1; //Enable continuous receive
     RC6PPS = 0x10; //sets Tx to port RC6 (port is output and digital by default)
+    RXPPS = 0x15; //sets Rx to port RC5
+    TRISCbits.TRISC6 = 0; //set Tx (RC6) as output
+    TRISCbits.TRISC5 = 1; //set Rx (RC5) as input
+    ANSELCbits.ANSC6 = 0; //set RC6 as digital
+    ANSELCbits.ANSC5 = 0; //set RC5 as digital
    
     //interrupts setup
     INTCONbits.PEIE = 1; //Peripheral interrupts enabled 
@@ -70,14 +72,36 @@ void main(void) { //main function
             
     while(1){ //always active loop
         //do something
-        uint8_t Rxsync[2];
         
-        if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
-        RXMSG = RC1REG; //store received byte
+        uint8_t RXFORMAT[6] //full Rx message storage array
         
+        x = 1; //counter
+        
+        while(x < 3){
+            if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
+            RXFORMAT[x] = RC1REG; //store received byte
+            x++;
+            }
+        }
+        
+        if((RXFULL[1] == 0xFE) & (RXFULL[2] == 0x19)){ //if sync bits received
+            while(x < 8){
+                if(PIR3bits.RCIF == 1){ //Data on receiver (incoming Transmission)
+                    RXFULL[x] = RC1REG;
+                x++;
+                }
+            }  
+        }
+        else{
+            break;
+        }
+        
+        for(int i = 0, j = Rxlength; i < j; i++){
+            
+        
+        }
         
     }
+     return;
     }
     
-    return;
-}

@@ -19812,7 +19812,6 @@ extern __bank0 __bit __timeout;
 # 9 "Mainproject.c" 2
 
 
-
 #pragma config FEXTOSC = ECH
 
 #pragma config RSTOSC = HFINT32
@@ -19826,143 +19825,30 @@ extern __bank0 __bit __timeout;
 uint8_t TXMSG = 0;
 uint8_t RXMSG = 0;
 
-
-uint8_t payload0502[20];
-uint16_t ch[10];
-
-
-
-
-
 void __attribute__((picinterrupt(("")))) ISR(){
 
-    if(PIE3bits.TXIE && (PIR3bits.TXIF == 1)){
+    if(PIR3bits.TXIF == 1){
 
         TX1REG = TXMSG;
         TXMSG = 0x00;
         PIE3bits.TXIE = 0;
     }
 
-    if(PIR3bits.RCIF == 1){
-        RXMSG = RC1REG;
+
+
+
+}
+
+void SEND_0501_GET_INFO(void){
+
+    uint8_t bytes[6] = {0xFE, 0x19, 0x01, 0x05, 0x00, 0x00};
+
+    for (int i = 0; i < 6; i++) {
+        while (PIR3bits.TXIF == 0) { }
+        TXMSG = bytes[i];
+        PIE3bits.TXIE = 1;
     }
 }
-
-void UARTSYNC(){
-
-    int x = 0;
-
-        while(x < 2){
-
-            if((PIR3bits.TXIF == 1) && (x == 0)){
-                TXMSG = 0xFE;
-                PIE3bits.TXIE = 1;
-                x = 1;
-            }
-            else if((PIR3bits.TXIF == 1) && (x == 1)){
-                TXMSG = 0x19;
-                PIE3bits.TXIE = 1;
-                x = 2;
-            }
-        }
-}
-
-void GETPCUINFO(){
-
-    int x = 0;
-
-        while(x < 2){
-
-            if((PIR3bits.TXIF == 1) && (x == 0)){
-                TXMSG = 0x01;
-                PIE3bits.TXIE = 1;
-                x = 1;
-            }
-            else if((PIR3bits.TXIF == 1) && (x == 1)){
-                TXMSG = 0x04;
-                PIE3bits.TXIE = 1;
-                x = 2;
-            }
-        }
-}
-void UART_Send_Byte(uint8_t b)
-{
-    while (PIR3bits.TXIF == 0) { }
-    TX1REG = b;
-}
-
-void SEND_0501_GET_INFO(void)
-{
-    UART_Send_Byte(0xFE);
-    UART_Send_Byte(0x19);
-    UART_Send_Byte(0x01);
-    UART_Send_Byte(0x05);
-    UART_Send_Byte(0x00);
-    UART_Send_Byte(0x00);
-}
-# 115 "Mainproject.c"
-uint8_t UART_Read_Blocking(void)
-{
-
-    if (RC1STAbits.OERR) {
-        RC1STAbits.CREN = 0;
-        RC1STAbits.CREN = 1;
-    }
-
-    while (PIR3bits.RCIF == 0) { }
-    return RC1REG;
-}
-
-void WAIT_FOR_SYNC_FE19(void)
-{
-    uint8_t b;
-
-
-    do {
-        b = UART_Read_Blocking();
-    } while (b != 0xFE);
-
-
-    do {
-        b = UART_Read_Blocking();
-    } while (b != 0x19);
-}
-
-
-
-
-
-uint8_t RECEIVE_0502(void)
-{
-    WAIT_FOR_SYNC_FE19();
-
-    uint8_t id_lsb = UART_Read_Blocking();
-    uint8_t id_msb = UART_Read_Blocking();
-    uint8_t len_lsb = UART_Read_Blocking();
-    uint8_t len_msb = UART_Read_Blocking();
-
-    uint16_t len = (uint16_t)len_lsb | ((uint16_t)len_msb << 8);
-
-
-    if (!(id_lsb == 0x02 && id_msb == 0x05 && len == 20)) {
-        return 0;
-    }
-
-
-    for (uint8_t i = 0; i < 20; i++) {
-        payload0502[i] = UART_Read_Blocking();
-    }
-
-
-    for (uint8_t i = 0; i < 10; i++) {
-        uint8_t lsb = payload0502[2*i];
-        uint8_t msb = payload0502[2*i + 1];
-        ch[i] = ((uint16_t)msb << 8) | lsb;
-    }
-
-    return 1;
-}
-
 
 void main(void) {
 
@@ -19976,39 +19862,25 @@ void main(void) {
     TX1STAbits.TXEN = 1;
     TX1STAbits.SYNC = 0;
     RC1STAbits.SPEN = 1;
-    RC1STAbits.CREN = 1;
-
-
+    RC1STAbits.CREN = 0;
     RC6PPS = 0x10;
-
-    TRISCbits.TRISC5 = 1;
-    ANSELCbits.ANSC5 = 0;
-    RXPPS = 0x15;
-
-
-
 
 
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
-# 215 "Mainproject.c"
-ANSELAbits.ANSA2 = 0;
-TRISAbits.TRISA2 = 0;
-LATAbits.LATA2 = 0;
+    PIE3bits.RCIE = 1;
 
+    SEND_0501_GET_INFO();
 
     while(1){
-        SEND_0501_GET_INFO();
 
-    if (RECEIVE_0502()) {
+        uint8_t Rxsync[2];
+
+        if(PIR3bits.RCIF == 1){
+        RXMSG = RC1REG;
 
 
-
-        LATAbits.LATA2 ^= 1;
+        }
     }
-
-    _delay((unsigned long)((50)*(32000000UL/4000.0)));
+     return;
     }
-
-    return;
-}

@@ -11,64 +11,20 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"33 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
+"24 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"84
-[v _UART_Send_Byte UART_Send_Byte `(v  1 e 1 0 ]
-"90
+"38
 [v _SEND_0501_GET_INFO SEND_0501_GET_INFO `(v  1 e 1 0 ]
-"115
-[v _UART_Read_Blocking UART_Read_Blocking `(uc  1 e 1 0 ]
-"127
-[v _WAIT_FOR_SYNC_FE19 WAIT_FOR_SYNC_FE19 `(v  1 e 1 0 ]
-"146
-[v _RECEIVE_0502 RECEIVE_0502 `(uc  1 e 1 0 ]
-"178
+"49
 [v _main main `(v  1 e 1 0 ]
-[s S167 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S123 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "364 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc/pic16f18855.h
-[u S172 . 1 `S167 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES172  1 e 1 @11 ]
-[s S201 . 1 `uc 1 TRISA0 1 0 :1:0 
-`uc 1 TRISA1 1 0 :1:1 
-`uc 1 TRISA2 1 0 :1:2 
-`uc 1 TRISA3 1 0 :1:3 
-`uc 1 TRISA4 1 0 :1:4 
-`uc 1 TRISA5 1 0 :1:5 
-`uc 1 TRISA6 1 0 :1:6 
-`uc 1 TRISA7 1 0 :1:7 
-]
-"608
-[u S210 . 1 `S201 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES210  1 e 1 @17 ]
-[s S124 . 1 `uc 1 TRISC0 1 0 :1:0 
-`uc 1 TRISC1 1 0 :1:1 
-`uc 1 TRISC2 1 0 :1:2 
-`uc 1 TRISC3 1 0 :1:3 
-`uc 1 TRISC4 1 0 :1:4 
-`uc 1 TRISC5 1 0 :1:5 
-`uc 1 TRISC6 1 0 :1:6 
-`uc 1 TRISC7 1 0 :1:7 
-]
-"732
-[u S133 . 1 `S124 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES133  1 e 1 @19 ]
-[s S222 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 LATA5 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-`uc 1 LATA7 1 0 :1:7 
-]
-"794
-[u S231 . 1 `S222 1 . 1 0 ]
-[v _LATAbits LATAbits `VES231  1 e 1 @22 ]
+[u S128 . 1 `S123 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES128  1 e 1 @11 ]
 "3503
 [v _RC1REG RC1REG `VEuc  1 e 1 @281 ]
 "3557
@@ -77,7 +33,7 @@
 [v _SP1BRGL SP1BRGL `VEuc  1 e 1 @283 ]
 "3688
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
-[s S58 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S101 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -87,9 +43,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3768
-[u S67 . 1 `S58 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES67  1 e 1 @285 ]
-[s S100 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S110 . 1 `S101 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES110  1 e 1 @285 ]
+[s S78 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -99,9 +55,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3948
-[u S109 . 1 `S100 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES109  1 e 1 @286 ]
-[s S79 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S87 . 1 `S78 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES87  1 e 1 @286 ]
+[s S57 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -111,9 +67,9 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4136
-[u S88 . 1 `S79 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES88  1 e 1 @287 ]
-[s S39 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[u S66 . 1 `S57 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES66  1 e 1 @287 ]
+[s S22 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -121,9 +77,9 @@
 `uc 1 RCIF 1 0 :1:5 
 ]
 "21120
-[u S46 . 1 `S39 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES46  1 e 1 @1807 ]
-[s S22 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[u S29 . 1 `S22 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES29  1 e 1 @1807 ]
+[s S40 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -131,103 +87,32 @@
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21542
-[u S29 . 1 `S22 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES29  1 e 1 @1817 ]
-"31566
-[v _RXPPS RXPPS `VEuc  1 e 1 @3787 ]
+[u S47 . 1 `S40 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES47  1 e 1 @1817 ]
 "32770
 [v _RC6PPS RC6PPS `VEuc  1 e 1 @3878 ]
-[s S180 . 1 `uc 1 ANSA0 1 0 :1:0 
-`uc 1 ANSA1 1 0 :1:1 
-`uc 1 ANSA2 1 0 :1:2 
-`uc 1 ANSA3 1 0 :1:3 
-`uc 1 ANSA4 1 0 :1:4 
-`uc 1 ANSA5 1 0 :1:5 
-`uc 1 ANSA6 1 0 :1:6 
-`uc 1 ANSA7 1 0 :1:7 
-]
-"32887
-[u S189 . 1 `S180 1 . 1 0 ]
-"32887
-"32887
-[v _ANSELAbits ANSELAbits `VES189  1 e 1 @3896 ]
-[s S145 . 1 `uc 1 ANSC0 1 0 :1:0 
-`uc 1 ANSC1 1 0 :1:1 
-`uc 1 ANSC2 1 0 :1:2 
-`uc 1 ANSC3 1 0 :1:3 
-`uc 1 ANSC4 1 0 :1:4 
-`uc 1 ANSC5 1 0 :1:5 
-`uc 1 ANSC6 1 0 :1:6 
-`uc 1 ANSC7 1 0 :1:7 
-]
-"34127
-[u S154 . 1 `S145 1 . 1 0 ]
-"34127
-"34127
-[v _ANSELCbits ANSELCbits `VES154  1 e 1 @3918 ]
-"22 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
+"21 C:\Users\colem\MPLABXProjects\ECE3232Mainproject.X\Mainproject.c
 [v _TXMSG TXMSG `uc  1 e 1 0 ]
-"23
+"22
 [v _RXMSG RXMSG `uc  1 e 1 0 ]
-"26
-[v _payload0502 payload0502 `[20]uc  1 e 20 0 ]
-"27
-[v _ch ch `[10]us  1 e 20 0 ]
-"178
+"49
 [v _main main `(v  1 e 1 0 ]
 {
-"234
+"82
 } 0
-"90
+"38
 [v _SEND_0501_GET_INFO SEND_0501_GET_INFO `(v  1 e 1 0 ]
 {
-"98
+"42
+[v SEND_0501_GET_INFO@i i `i  1 a 2 7 ]
+"40
+[v SEND_0501_GET_INFO@bytes bytes `[6]uc  1 a 6 1 ]
+"38
+[v SEND_0501_GET_INFO@F11709 F11709 `[6]uc  1 s 6 F11709 ]
+"47
 } 0
-"84
-[v _UART_Send_Byte UART_Send_Byte `(v  1 e 1 0 ]
-{
-[v UART_Send_Byte@b b `uc  1 p 1 wreg ]
-[v UART_Send_Byte@b b `uc  1 p 1 wreg ]
-[v UART_Send_Byte@b b `uc  1 p 1 0 ]
-"88
-} 1
-"146
-[v _RECEIVE_0502 RECEIVE_0502 `(uc  1 e 1 0 ]
-{
-"170
-[v RECEIVE_0502@msb msb `uc  1 a 1 11 ]
-"169
-[v RECEIVE_0502@lsb lsb `uc  1 a 1 10 ]
-"168
-[v RECEIVE_0502@i_298 i `uc  1 a 1 13 ]
-"163
-[v RECEIVE_0502@i i `uc  1 a 1 12 ]
-"155
-[v RECEIVE_0502@len len `us  1 a 2 4 ]
-"153
-[v RECEIVE_0502@len_msb len_msb `uc  1 a 1 9 ]
-"152
-[v RECEIVE_0502@len_lsb len_lsb `uc  1 a 1 8 ]
-"151
-[v RECEIVE_0502@id_msb id_msb `uc  1 a 1 7 ]
-"150
-[v RECEIVE_0502@id_lsb id_lsb `uc  1 a 1 6 ]
-"175
-} 0
-"127
-[v _WAIT_FOR_SYNC_FE19 WAIT_FOR_SYNC_FE19 `(v  1 e 1 0 ]
-{
-"129
-[v WAIT_FOR_SYNC_FE19@b b `uc  1 a 1 0 ]
-"140
-} 0
-"115
-[v _UART_Read_Blocking UART_Read_Blocking `(uc  1 e 1 0 ]
-{
-"125
-} 0
-"33
+"24
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"45
+"36
 } 0

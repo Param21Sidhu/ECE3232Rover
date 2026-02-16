@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
-                                                                                               Sun Feb 15 16:46:00 2026
+                                                                                               Sun Feb 15 16:56:50 2026
 
 Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1 
      1                           	processor	16F18855
@@ -1260,7 +1260,7 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1241     0064  0022               	movlb	2	; select bank2
   1242     0065  159F               	bsf	31,3	;volatile
   1243                           
-  1244                           ;Mainproject.c: 53:     }
+  1244                           ;Mainproject.c: 53: 
   1245     0066  151E               	bsf	30,2	;volatile
   1246     0067                     l679:
   1247                           
@@ -1268,280 +1268,286 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1249     0067  019C               	clrf	28	;volatile
   1250     0068                     l681:
   1251                           
-  1252                           ;Mainproject.c: 55:     return;
+  1252                           ;Mainproject.c: 55: 
   1253     0068  3044               	movlw	68
   1254     0069  009B               	movwf	27	;volatile
   1255     006A                     l683:
-  1256     006A  169E               	bsf	30,5	;volatile
-  1257     006B                     l685:
-  1258     006B  121E               	bcf	30,4	;volatile
-  1259     006C                     l687:
-  1260     006C  179D               	bsf	29,7	;volatile
-  1261     006D                     l689:
-  1262     006D  161D               	bsf	29,4	;volatile
-  1263     006E                     l691:
-  1264     006E  3010               	movlw	16
-  1265     006F  003E               	movlb	30	; select bank30
-  1266     0070  00A6               	movwf	38	;volatile
-  1267     0071                     l693:
-  1268     0071  170B               	bsf	11,6	;volatile
-  1269     0072                     l695:
-  1270     0072  178B               	bsf	11,7	;volatile
-  1271     0073                     l697:
-  1272     0073  002E               	movlb	14	; select bank14
-  1273     0074  1699               	bsf	25,5	;volatile
-  1274     0075                     l699:
-  1275     0075  3180  2036  3180   	fcall	_SEND_0501_GET_INFO
-  1276     0078                     l48:
-  1277     0078                     l49:
-  1278     0078  2878               	goto	l48
-  1279     0079  3180  281E         	ljmp	start
-  1280     007B                     __end_of_main:
-  1281                           
-  1282                           	psect	text1
-  1283     0036                     __ptext1:	
-  1284 ;; *************** function _SEND_0501_GET_INFO *****************
-  1285 ;; Defined at:
-  1286 ;;		line 38 in file "Mainproject.c"
-  1287 ;; Parameters:    Size  Location     Type
-  1288 ;;		None
-  1289 ;; Auto vars:     Size  Location     Type
-  1290 ;;  i               2    7[COMMON] int 
-  1291 ;;  bytes           6    1[COMMON] unsigned char [6]
-  1292 ;; Return value:  Size  Location     Type
-  1293 ;;                  1    wreg      void 
-  1294 ;; Registers used:
-  1295 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
-  1296 ;; Tracked objects:
-  1297 ;;		On entry : 0/0
-  1298 ;;		On exit  : 0/0
-  1299 ;;		Unchanged: 0/0
-  1300 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+  1256                           
+  1257                           ;Mainproject.c: 58:     }
+  1258     006A  169E               	bsf	30,5	;volatile
+  1259     006B                     l685:
+  1260                           
+  1261                           ;Mainproject.c: 59:      return;
+  1262     006B  121E               	bcf	30,4	;volatile
+  1263     006C                     l687:
+  1264                           
+  1265                           ;Mainproject.c: 60:     }
+  1266     006C  179D               	bsf	29,7	;volatile
+  1267     006D                     l689:
+  1268     006D  161D               	bsf	29,4	;volatile
+  1269     006E                     l691:
+  1270     006E  3010               	movlw	16
+  1271     006F  003E               	movlb	30	; select bank30
+  1272     0070  00A6               	movwf	38	;volatile
+  1273     0071                     l693:
+  1274     0071  170B               	bsf	11,6	;volatile
+  1275     0072                     l695:
+  1276     0072  178B               	bsf	11,7	;volatile
+  1277     0073                     l697:
+  1278     0073  002E               	movlb	14	; select bank14
+  1279     0074  1699               	bsf	25,5	;volatile
+  1280     0075                     l699:
+  1281     0075  3180  2036  3180   	fcall	_SEND_0501_GET_INFO
+  1282     0078                     l48:
+  1283     0078                     l49:
+  1284     0078  2878               	goto	l48
+  1285     0079  3180  281E         	ljmp	start
+  1286     007B                     __end_of_main:
+  1287                           
+  1288                           	psect	text1
+  1289     0036                     __ptext1:	
+  1290 ;; *************** function _SEND_0501_GET_INFO *****************
+  1291 ;; Defined at:
+  1292 ;;		line 38 in file "Mainproject.c"
+  1293 ;; Parameters:    Size  Location     Type
+  1294 ;;		None
+  1295 ;; Auto vars:     Size  Location     Type
+  1296 ;;  i               2    7[COMMON] int 
+  1297 ;;  bytes           6    1[COMMON] unsigned char [6]
+  1298 ;; Return value:  Size  Location     Type
+  1299 ;;                  1    wreg      void 
+  1300 ;; Registers used:
+  1301 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
+  1302 ;; Tracked objects:
+  1303 ;;		On entry : 0/0
+  1304 ;;		On exit  : 0/0
+  1305 ;;		Unchanged: 0/0
+  1306 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-  1301 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1307 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1302 ;;      Locals:         8       0       0       0       0       0       0       0       0       0       0       0       
+  1308 ;;      Locals:         8       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1303 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+  1309 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1304 ;;      Totals:         9       0       0       0       0       0       0       0       0       0       0       0       
+  1310 ;;      Totals:         9       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1305 ;;Total ram usage:        9 bytes
-  1306 ;; Hardware stack levels used: 1
-  1307 ;; Hardware stack levels required when called: 1
-  1308 ;; This function calls:
-  1309 ;;		Nothing
-  1310 ;; This function is called by:
-  1311 ;;		_main
-  1312 ;; This function uses a non-reentrant model
-  1313 ;;
-  1314                           
-  1315     0036                     _SEND_0501_GET_INFO:	
-  1316                           ;psect for function _SEND_0501_GET_INFO
-  1317                           
-  1318     0036                     l661:	
-  1319                           ;incstack = 0
-  1320                           ; Regs used in _SEND_0501_GET_INFO: [wreg-fsr1h+status,2+status,0]
-  1321                           
-  1322                           
-  1323                           ;Mainproject.c: 40:     RC1STAbits.SPEN = 1;
-  1324     0036  3020               	movlw	low SEND_0501_GET_INFO@F11709
-  1325     0037  0086               	movwf	6
-  1326     0038  3000               	movlw	high SEND_0501_GET_INFO@F11709
-  1327     0039  0087               	movwf	7
-  1328     003A  3071               	movlw	low SEND_0501_GET_INFO@bytes
-  1329     003B  0084               	movwf	4
-  1330     003C  3000               	movlw	high SEND_0501_GET_INFO@bytes
-  1331     003D  0085               	movwf	5
-  1332     003E  3006               	movlw	6
-  1333     003F  00F0               	movwf	??_SEND_0501_GET_INFO
-  1334     0040                     u60:
-  1335     0040  0016               	moviw fsr1++
-  1336     0041  001A               	movwi fsr0++
-  1337     0042  0BF0               	decfsz	??_SEND_0501_GET_INFO,f
-  1338     0043  2840               	goto	u60
-  1339     0044                     l663:
-  1340                           
-  1341                           ;Mainproject.c: 42:     RC6PPS = 0x10;
-  1342     0044  01F7               	clrf	SEND_0501_GET_INFO@i
-  1343     0045  01F8               	clrf	SEND_0501_GET_INFO@i+1
-  1344     0046                     l40:
-  1345     0046  002E               	movlb	14	; select bank14
-  1346     0047  1E0F               	btfss	15,4	;volatile
-  1347     0048  284A               	goto	u71
-  1348     0049  284B               	goto	u70
-  1349     004A                     u71:
-  1350     004A  2846               	goto	l40
-  1351     004B                     u70:
-  1352     004B                     l669:
-  1353                           
-  1354                           ;Mainproject.c: 44: 
-  1355     004B  0877               	movf	SEND_0501_GET_INFO@i,w
-  1356     004C  3E71               	addlw	(low (SEND_0501_GET_INFO@bytes| 0))& (0+255)
-  1357     004D  0086               	movwf	6
-  1358     004E  0187               	clrf	7
-  1359     004F  0801               	movf	1,w
-  1360     0050  00FA               	movwf	_TXMSG
-  1361     0051                     l671:
-  1362                           
-  1363                           ;Mainproject.c: 45:     INTCONbits.PEIE = 1;
-  1364     0051  1619               	bsf	25,4	;volatile
-  1365     0052                     l673:
-  1366                           
-  1367                           ;Mainproject.c: 46:     INTCONbits.GIE = 1;
-  1368     0052  3001               	movlw	1
-  1369     0053  07F7               	addwf	SEND_0501_GET_INFO@i,f
-  1370     0054  3000               	movlw	0
-  1371     0055  3DF8               	addwfc	SEND_0501_GET_INFO@i+1,f
-  1372     0056                     l675:
-  1373     0056  0878               	movf	SEND_0501_GET_INFO@i+1,w
-  1374     0057  3A80               	xorlw	128
-  1375     0058  00F0               	movwf	??_SEND_0501_GET_INFO
-  1376     0059  3080               	movlw	128
-  1377     005A  0270               	subwf	??_SEND_0501_GET_INFO,w
-  1378     005B  1D03               	skipz
-  1379     005C  285F               	goto	u85
-  1380     005D  3006               	movlw	6
-  1381     005E  0277               	subwf	SEND_0501_GET_INFO@i,w
-  1382     005F                     u85:
-  1383     005F  1C03               	skipc
-  1384     0060  2862               	goto	u81
-  1385     0061  2863               	goto	u80
-  1386     0062                     u81:
-  1387     0062  2846               	goto	l40
-  1388     0063                     u80:
-  1389     0063                     l43:
-  1390     0063  0008               	return
-  1391     0064                     __end_of_SEND_0501_GET_INFO:
-  1392                           
-  1393                           	psect	intentry
-  1394     0004                     __pintentry:	
-  1395 ;; *************** function _ISR *****************
-  1396 ;; Defined at:
-  1397 ;;		line 24 in file "Mainproject.c"
-  1398 ;; Parameters:    Size  Location     Type
-  1399 ;;		None
-  1400 ;; Auto vars:     Size  Location     Type
-  1401 ;;		None
-  1402 ;; Return value:  Size  Location     Type
-  1403 ;;                  1    wreg      void 
-  1404 ;; Registers used:
-  1405 ;;		wreg, status,2
-  1406 ;; Tracked objects:
-  1407 ;;		On entry : 0/0
-  1408 ;;		On exit  : 0/0
-  1409 ;;		Unchanged: 0/0
-  1410 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+  1311 ;;Total ram usage:        9 bytes
+  1312 ;; Hardware stack levels used: 1
+  1313 ;; Hardware stack levels required when called: 1
+  1314 ;; This function calls:
+  1315 ;;		Nothing
+  1316 ;; This function is called by:
+  1317 ;;		_main
+  1318 ;; This function uses a non-reentrant model
+  1319 ;;
+  1320                           
+  1321     0036                     _SEND_0501_GET_INFO:	
+  1322                           ;psect for function _SEND_0501_GET_INFO
+  1323                           
+  1324     0036                     l661:	
+  1325                           ;incstack = 0
+  1326                           ; Regs used in _SEND_0501_GET_INFO: [wreg-fsr1h+status,2+status,0]
+  1327                           
+  1328                           
+  1329                           ;Mainproject.c: 40:     RC1STAbits.SPEN = 1;
+  1330     0036  3020               	movlw	low SEND_0501_GET_INFO@F11709
+  1331     0037  0086               	movwf	6
+  1332     0038  3000               	movlw	high SEND_0501_GET_INFO@F11709
+  1333     0039  0087               	movwf	7
+  1334     003A  3071               	movlw	low SEND_0501_GET_INFO@bytes
+  1335     003B  0084               	movwf	4
+  1336     003C  3000               	movlw	high SEND_0501_GET_INFO@bytes
+  1337     003D  0085               	movwf	5
+  1338     003E  3006               	movlw	6
+  1339     003F  00F0               	movwf	??_SEND_0501_GET_INFO
+  1340     0040                     u60:
+  1341     0040  0016               	moviw fsr1++
+  1342     0041  001A               	movwi fsr0++
+  1343     0042  0BF0               	decfsz	??_SEND_0501_GET_INFO,f
+  1344     0043  2840               	goto	u60
+  1345     0044                     l663:
+  1346                           
+  1347                           ;Mainproject.c: 42:     RC6PPS = 0x10;
+  1348     0044  01F7               	clrf	SEND_0501_GET_INFO@i
+  1349     0045  01F8               	clrf	SEND_0501_GET_INFO@i+1
+  1350     0046                     l40:
+  1351     0046  002E               	movlb	14	; select bank14
+  1352     0047  1E0F               	btfss	15,4	;volatile
+  1353     0048  284A               	goto	u71
+  1354     0049  284B               	goto	u70
+  1355     004A                     u71:
+  1356     004A  2846               	goto	l40
+  1357     004B                     u70:
+  1358     004B                     l669:
+  1359                           
+  1360                           ;Mainproject.c: 44: 
+  1361     004B  0877               	movf	SEND_0501_GET_INFO@i,w
+  1362     004C  3E71               	addlw	(low (SEND_0501_GET_INFO@bytes| 0))& (0+255)
+  1363     004D  0086               	movwf	6
+  1364     004E  0187               	clrf	7
+  1365     004F  0801               	movf	1,w
+  1366     0050  00FA               	movwf	_TXMSG
+  1367     0051                     l671:
+  1368                           
+  1369                           ;Mainproject.c: 45:     INTCONbits.PEIE = 1;
+  1370     0051  1619               	bsf	25,4	;volatile
+  1371     0052                     l673:
+  1372                           
+  1373                           ;Mainproject.c: 46:     INTCONbits.GIE = 1;
+  1374     0052  3001               	movlw	1
+  1375     0053  07F7               	addwf	SEND_0501_GET_INFO@i,f
+  1376     0054  3000               	movlw	0
+  1377     0055  3DF8               	addwfc	SEND_0501_GET_INFO@i+1,f
+  1378     0056                     l675:
+  1379     0056  0878               	movf	SEND_0501_GET_INFO@i+1,w
+  1380     0057  3A80               	xorlw	128
+  1381     0058  00F0               	movwf	??_SEND_0501_GET_INFO
+  1382     0059  3080               	movlw	128
+  1383     005A  0270               	subwf	??_SEND_0501_GET_INFO,w
+  1384     005B  1D03               	skipz
+  1385     005C  285F               	goto	u85
+  1386     005D  3006               	movlw	6
+  1387     005E  0277               	subwf	SEND_0501_GET_INFO@i,w
+  1388     005F                     u85:
+  1389     005F  1C03               	skipc
+  1390     0060  2862               	goto	u81
+  1391     0061  2863               	goto	u80
+  1392     0062                     u81:
+  1393     0062  2846               	goto	l40
+  1394     0063                     u80:
+  1395     0063                     l43:
+  1396     0063  0008               	return
+  1397     0064                     __end_of_SEND_0501_GET_INFO:
+  1398                           
+  1399                           	psect	intentry
+  1400     0004                     __pintentry:	
+  1401 ;; *************** function _ISR *****************
+  1402 ;; Defined at:
+  1403 ;;		line 24 in file "Mainproject.c"
+  1404 ;; Parameters:    Size  Location     Type
+  1405 ;;		None
+  1406 ;; Auto vars:     Size  Location     Type
+  1407 ;;		None
+  1408 ;; Return value:  Size  Location     Type
+  1409 ;;                  1    wreg      void 
+  1410 ;; Registers used:
+  1411 ;;		wreg, status,2
+  1412 ;; Tracked objects:
+  1413 ;;		On entry : 0/0
+  1414 ;;		On exit  : 0/0
+  1415 ;;		Unchanged: 0/0
+  1416 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-  1411 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1417 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1412 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1418 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1413 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+  1419 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1414 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1420 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-  1415 ;;Total ram usage:        0 bytes
-  1416 ;; Hardware stack levels used: 1
-  1417 ;; This function calls:
-  1418 ;;		Nothing
-  1419 ;; This function is called by:
-  1420 ;;		Interrupt level 1
-  1421 ;; This function uses a non-reentrant model
-  1422 ;;
-  1423                           
-  1424     0004                     _ISR:
-  1425                           
-  1426                           ;incstack = 0
-  1427     0004  147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
-  1428                           
-  1429                           ; Regs used in _ISR: [wreg+status,2]
-  1430     0005  3180               	pagesel	$
-  1431     0006  3000               	movlw	low ___int_sp
-  1432     0007  0086               	movwf	6
-  1433     0008  3000               	movlw	high ___int_sp
-  1434     0009  0087               	movwf	7
-  1435     000A                     i1l625:
-  1436                           
-  1437                           ;Mainproject.c: 26:     }
-  1438     000A  002E               	movlb	14	; select bank14
-  1439     000B  1E0F               	btfss	15,4	;volatile
-  1440     000C  280E               	goto	u4_21
-  1441     000D  280F               	goto	u4_20
-  1442     000E                     u4_21:
-  1443     000E  2815               	goto	i1l633
-  1444     000F                     u4_20:
-  1445     000F                     i1l627:
-  1446                           
-  1447                           ;Mainproject.c: 28: 
-  1448     000F  087A               	movf	_TXMSG,w
-  1449     0010  0022               	movlb	2	; select bank2
-  1450     0011  009A               	movwf	26	;volatile
-  1451     0012                     i1l629:
+  1421 ;;Total ram usage:        0 bytes
+  1422 ;; Hardware stack levels used: 1
+  1423 ;; This function calls:
+  1424 ;;		Nothing
+  1425 ;; This function is called by:
+  1426 ;;		Interrupt level 1
+  1427 ;; This function uses a non-reentrant model
+  1428 ;;
+  1429                           
+  1430     0004                     _ISR:
+  1431                           
+  1432                           ;incstack = 0
+  1433     0004  147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
+  1434                           
+  1435                           ; Regs used in _ISR: [wreg+status,2]
+  1436     0005  3180               	pagesel	$
+  1437     0006  3000               	movlw	low ___int_sp
+  1438     0007  0086               	movwf	6
+  1439     0008  3000               	movlw	high ___int_sp
+  1440     0009  0087               	movwf	7
+  1441     000A                     i1l625:
+  1442                           
+  1443                           ;Mainproject.c: 26:     }
+  1444     000A  002E               	movlb	14	; select bank14
+  1445     000B  1E0F               	btfss	15,4	;volatile
+  1446     000C  280E               	goto	u4_21
+  1447     000D  280F               	goto	u4_20
+  1448     000E                     u4_21:
+  1449     000E  2815               	goto	i1l633
+  1450     000F                     u4_20:
+  1451     000F                     i1l627:
   1452                           
-  1453                           ;Mainproject.c: 29: void main(void) {
-  1454     0012  01FA               	clrf	_TXMSG
-  1455     0013                     i1l631:
-  1456                           
-  1457                           ;Mainproject.c: 30: 
-  1458     0013  002E               	movlb	14	; select bank14
-  1459     0014  1219               	bcf	25,4	;volatile
-  1460     0015                     i1l633:
-  1461                           
-  1462                           ;Mainproject.c: 33:     TX1STAbits.BRGH = 1;
-  1463     0015  1E8F               	btfss	15,5	;volatile
-  1464     0016  2818               	goto	u5_21
-  1465     0017  2819               	goto	u5_20
-  1466     0018                     u5_21:
-  1467     0018  281C               	goto	i1l33
-  1468     0019                     u5_20:
-  1469     0019                     i1l635:
-  1470                           
-  1471                           ;Mainproject.c: 34:     SP1BRGH = 0x00;
-  1472     0019  0022               	movlb	2	; select bank2
-  1473     001A  0819               	movf	25,w	;volatile
-  1474     001B  00F9               	movwf	_RXMSG
-  1475     001C                     i1l33:
-  1476     001C  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
-  1477     001D  0009               	retfie
-  1478     001E                     __end_of_ISR:
-  1479     0002                     ___latbits      equ	2
-  1480     007E                     btemp           set	126	;btemp
-  1481     007E                     int$flags       set	126
-  1482     007E                     btemp0          set	126
-  1483     007F                     btemp1          set	127
-  1484     007E                     wtemp0          set	126
-  1485     007F                     wtemp0a         set	127
-  1486     007F                     ttemp0a         set	127
-  1487     0080                     ltemp0a         set	128
-  1488                           
-  1489                           	psect	config
-  1490                           
-  1491                           ;Config register CONFIG1 @ 0x8007
-  1492                           ;	External Oscillator mode selection bits
-  1493                           ;	FEXTOSC = ECH, EC above 8MHz; PFM set to high power
-  1494                           ;	Power-up default value for COSC bits
-  1495                           ;	RSTOSC = HFINT32, HFINTOSC with OSCFRQ= 32 MHz and CDIV = 1:1
-  1496                           ;	Clock Out Enable bit
-  1497                           ;	CLKOUTEN = OFF, CLKOUT function is disabled; i/o or oscillator function on OSC2
-  1498                           ;	Clock Switch Enable bit
-  1499                           ;	CSWEN = ON, Writing to NOSC and NDIV is allowed
-  1500                           ;	Fail-Safe Clock Monitor Enable bit
-  1501                           ;	FCMEN = ON, FSCM timer enabled
-  1502     8007                     	org	32775
-  1503     8007  3F8F               	dw	16271
-  1504                           
-  1505                           ;Config register CONFIG3 @ 0x8009
-  1506                           ;	WDT Period Select bits
-  1507                           ;	WDTCPS = 0x1F, unprogrammed default
-  1508                           ;	WDT operating mode
-  1509                           ;	WDTE = OFF, WDT Disabled, SWDTEN is ignored
-  1510                           ;	WDT Window Select bits
-  1511                           ;	WDTCWS = 0x7, unprogrammed default
-  1512                           ;	WDT input clock selector
-  1513                           ;	WDTCCS = 0x7, unprogrammed default
-  1514     8009                     	org	32777
-  1515     8009  3F9F               	dw	16287
+  1453                           ;Mainproject.c: 28: 
+  1454     000F  087A               	movf	_TXMSG,w
+  1455     0010  0022               	movlb	2	; select bank2
+  1456     0011  009A               	movwf	26	;volatile
+  1457     0012                     i1l629:
+  1458                           
+  1459                           ;Mainproject.c: 29: void main(void) {
+  1460     0012  01FA               	clrf	_TXMSG
+  1461     0013                     i1l631:
+  1462                           
+  1463                           ;Mainproject.c: 30: 
+  1464     0013  002E               	movlb	14	; select bank14
+  1465     0014  1219               	bcf	25,4	;volatile
+  1466     0015                     i1l633:
+  1467                           
+  1468                           ;Mainproject.c: 33:     TX1STAbits.BRGH = 1;
+  1469     0015  1E8F               	btfss	15,5	;volatile
+  1470     0016  2818               	goto	u5_21
+  1471     0017  2819               	goto	u5_20
+  1472     0018                     u5_21:
+  1473     0018  281C               	goto	i1l33
+  1474     0019                     u5_20:
+  1475     0019                     i1l635:
+  1476                           
+  1477                           ;Mainproject.c: 34:     SP1BRGH = 0x00;
+  1478     0019  0022               	movlb	2	; select bank2
+  1479     001A  0819               	movf	25,w	;volatile
+  1480     001B  00F9               	movwf	_RXMSG
+  1481     001C                     i1l33:
+  1482     001C  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+  1483     001D  0009               	retfie
+  1484     001E                     __end_of_ISR:
+  1485     0002                     ___latbits      equ	2
+  1486     007E                     btemp           set	126	;btemp
+  1487     007E                     int$flags       set	126
+  1488     007E                     btemp0          set	126
+  1489     007F                     btemp1          set	127
+  1490     007E                     wtemp0          set	126
+  1491     007F                     wtemp0a         set	127
+  1492     007F                     ttemp0a         set	127
+  1493     0080                     ltemp0a         set	128
+  1494                           
+  1495                           	psect	config
+  1496                           
+  1497                           ;Config register CONFIG1 @ 0x8007
+  1498                           ;	External Oscillator mode selection bits
+  1499                           ;	FEXTOSC = ECH, EC above 8MHz; PFM set to high power
+  1500                           ;	Power-up default value for COSC bits
+  1501                           ;	RSTOSC = HFINT32, HFINTOSC with OSCFRQ= 32 MHz and CDIV = 1:1
+  1502                           ;	Clock Out Enable bit
+  1503                           ;	CLKOUTEN = OFF, CLKOUT function is disabled; i/o or oscillator function on OSC2
+  1504                           ;	Clock Switch Enable bit
+  1505                           ;	CSWEN = ON, Writing to NOSC and NDIV is allowed
+  1506                           ;	Fail-Safe Clock Monitor Enable bit
+  1507                           ;	FCMEN = ON, FSCM timer enabled
+  1508     8007                     	org	32775
+  1509     8007  3F8F               	dw	16271
+  1510                           
+  1511                           ;Config register CONFIG3 @ 0x8009
+  1512                           ;	WDT Period Select bits
+  1513                           ;	WDTCPS = 0x1F, unprogrammed default
+  1514                           ;	WDT operating mode
+  1515                           ;	WDTE = OFF, WDT Disabled, SWDTEN is ignored
+  1516                           ;	WDT Window Select bits
+  1517                           ;	WDTCWS = 0x7, unprogrammed default
+  1518                           ;	WDT input clock selector
+  1519                           ;	WDTCCS = 0x7, unprogrammed default
+  1520     8009                     	org	32777
+  1521     8009  3F9F               	dw	16287
 
 Data Sizes:
     Strings     0
@@ -1747,7 +1753,7 @@ DATA                 0      0      17      0.0%
 
 
 Microchip Technology PIC Macro Assembler V3.10 build 20250813170317 
-Symbol Table                                                                                   Sun Feb 15 16:46:00 2026
+Symbol Table                                                                                   Sun Feb 15 16:56:50 2026
 
                         l40 0046                          l43 0063                          l48 0078  
                         l49 0078                          u60 0040                          u70 004B  
