@@ -45,6 +45,18 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 32000000UL
+#define N_BOXES 6
+
+// ======== Threshold for "conductive yes/no" ========
+// You'll calibrate this after first run.
+// Typical starting values: 300 to 600 depending on your probes/material.
+#define COND_THRESH   300
+
+// ======== LED pins (change if you want) ========
+#define LED_COND_LAT   LATAbits.LATA0   // ON when conductive
+#define LED_STORE_LAT  LATAbits.LATA1   // blink when stored
+
+
 
 static uint16_t ADC_Read(){
 
@@ -58,15 +70,16 @@ static uint16_t ADC_Read(){
     
 }
 
+static uint16_t ADC_Read_Avg16(void)
+{
+    uint32_t sum = 0;
+    for (uint8_t i = 0; i < 16; i++)
+        sum += ADC_Read();
 
-void main(void) {
-    
-     // Debug LED: use RA0 as an output (board LED might be on RA0/RA2 etc.)
-    TRISAbits.TRISA0 = 0;
-    ANSELAbits.ANSA0 = 0;
-    
-    
-    
+    return (uint16_t)(sum / 16);
+}
+static void ADC_Init(void){
+      
     TRISCbits.TRISC0 = 1;
     ANSELCbits.ANSC0 = 1;
     
@@ -81,25 +94,117 @@ void main(void) {
     
     ADCLKbits.ADCCS = 0b111111; // slow clock fosc/128
     ADACQbits.ADACQ = 0b00010000;
+
+}
+
+
+static void Button_Init(void)
+{
+    TRISAbits.TRISA5 = 1;
+    ANSELAbits.ANSA5 = 0;  // digital
+}
+
+static void LEDs_Init(void)
+{
+    //for conductive 
+    TRISAbits.TRISA0 = 0;
+    ANSELAbits.ANSA0 = 0;
+    LED_COND_LAT = 0;
     
+    
+    //stored
+    TRISAbits.TRISA1 = 0;
+    ANSELAbits.ANSA1 = 0;
+    LED_STORE_LAT = 0;
+}
+
+
+
+static uint8_t Button_Pressed(void)
+{
+    return (PORTAbits.RA5 == 0); // pressed = 0
+}
+
+static void Wait_Button_Press_Release(void)
+{
+    while (!Button_Pressed()) {;}
+    __delay_ms(30); // debounce
+    while (Button_Pressed()) {;}
+    __delay_ms(30);
+}
+
+
+static void Blink_Store_LED(void)
+{
+    LED_STORE_LAT = 1; __delay_ms(120);
+    LED_STORE_LAT = 0; __delay_ms(120);
+}
+void main(void) {
+    
+    
+    ADC_Init();
+     
+    //Button to save the result press and saved 
+    Button_Init();
+    
+    //Store and to see if it's conductive using led's 
+    LEDs_Init();
+    
+      // Store all readings here
+    static uint16_t adc_vals[N_BOXES];
+    uint8_t count = 0;
+    
+    
+
        while (1)
     {
-        // Average multiple samples for stable reading
-        uint32_t sum = 0;
-        for (uint8_t i = 0; i < 16; i++)
-        {
-            sum += ADC_Read();
-        }
-        uint16_t adc = (uint16_t)(sum / 16);
-
-        // Conductive material -> VOUT low -> ADC low
-        // Tune threshold after first run if needed
-        if (adc < 300)
-            LATAbits.LATA0 = 1;     // LED ON = conductive
+           
+             // 1) Live reading (so you can see conductive LED in real time)
+        uint16_t adc = ADC_Read_Avg16(); 
+           
+        // 2) Conductive YES/NO LED
+        // conductive => lower adc
+        if (adc < COND_THRESH)
+            LED_COND_LAT = 1;
         else
-            LATAbits.LATA0 = 0;     // LED OFF = not conductive
+            LED_COND_LAT = 0;
+        
+         // 3) Save reading when you press S2
+       if (Button_Pressed())
+        {
+            Wait_Button_Press_Release();
 
-        __delay_ms(100);
+            // Take a stronger average when saving (more stable)
+            uint32_t sum = 0;
+            for (uint8_t k = 0; k < 8; k++)
+            {
+                sum += ADC_Read_Avg16();
+                __delay_ms(10);
+            }
+            adc_vals[count] = (uint16_t)(sum / 8);
+
+            Blink_Store_LED();  // confirm stored
+
+            count++;
+
+            // If we've stored N readings, just hold here (or you can restart)
+            if (count >= N_BOXES)
+            {
+                // Solid ON store LED to show "done"
+                LED_STORE_LAT = 1;
+
+                // Keep showing conductive LED live if you move probes
+                while (1)
+                {
+                    uint16_t live = ADC_Read_Avg16();
+                    LED_COND_LAT = (live < COND_THRESH) ? 1 : 0;
+                    __delay_ms(50);
+                }
+            }
+        }
+        
+        
+        __delay_ms(50);
     }
     
      
